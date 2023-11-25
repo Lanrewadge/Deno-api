@@ -1,0 +1,17 @@
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deno-rest-api-ingress
+spec:
+  rules:
+    - host: your-domain.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: deno-rest-api-service
+                port:
+                  number: 80
